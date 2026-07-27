@@ -1,0 +1,93 @@
+{
+  "environments": {
+    "Target1a_RS25_throat": "RS-25 throat (LOX/LH2, M=1)",
+    "Target1b_F1_throat": "F-1 throat (LOX/RP-1, M=1)",
+    "Target2_leadingedge": "Hypersonic leading edge (air, dry)"
+  },
+  "results": {
+    "Target1a_RS25_throat": {
+      "C2_HfZr": {
+        "p_metal_volatile_Pa": 131.61234436301245,
+        "scale": "HfO2+ZrO2",
+        "recession_um_per_hr": 265.4620985801961
+      },
+      "C3_HfZrTa": {
+        "p_metal_volatile_Pa": 933.4113503740566,
+        "scale": "HfO2+ZrO2+Ta2O5",
+        "recession_um_per_hr": 1882.690693704472
+      },
+      "C3_HfZrNb": {
+        "p_metal_volatile_Pa": 1581.1784019961933,
+        "scale": "HfO2+ZrO2+Nb2O5",
+        "recession_um_per_hr": 3189.236836826322
+      },
+      "C4_noTi": {
+        "p_metal_volatile_Pa": 1820.1361420961814,
+        "scale": "HfO2+ZrO2+Ta2O5+Nb2O5",
+        "recession_um_per_hr": 3671.2145986079977
+      }
+    },
+    "Target1b_F1_throat": {
+      "C2_HfZr": {
+        "p_metal_volatile_Pa": 58.65682278253895,
+        "scale": "HfO2+ZrO2",
+        "recession_um_per_hr": 100.18585331257653
+      },
+      "C3_HfZrTa": {
+        "p_metal_volatile_Pa": 480.77010887980316,
+        "scale": "HfO2+ZrO2+Ta2O5",
+        "recession_um_per_hr": 821.1553459667037
+      },
+      "C3_HfZrNb": {
+        "p_metal_volatile_Pa": 926.7522351340846,
+        "scale": "HfO2+ZrO2+Nb2O5",
+        "recession_um_per_hr": 1582.8928176090164
+      },
+      "C4_noTi": {
+        "p_metal_volatile_Pa": 1026.3133466191464,
+        "scale": "HfO2+ZrO2+Ta2O5+Nb2O5",
+        "recession_um_per_hr": 1752.943196025502
+      }
+    },
+    "Target2_leadingedge": {
+      "C2_HfZr": {
+        "p_metal_volatile_Pa": 0.0005164298619121829,
+        "scale": "HfO2+ZrO2",
+        "recession_um_per_hr": 0.21910060684797397
+      },
+      "C3_HfZrTa": {
+        "p_metal_volatile_Pa": 0.05531667847849128,
+        "scale": "HfO2+ZrO2+Ta2O5",
+        "recession_um_per_hr": 23.468661898394735
+      },
+      "C3_HfZrNb": {
+        "p_metal_volatile_Pa": 0.15238841533761527,
+        "scale": "HfO2+ZrO2+Nb2O5",
+        "recession_um_per_hr": 64.65233081883672
+      },
+      "C4_noTi": {
+        "p_metal_volatile_Pa": 0.15552060543112384,
+        "scale": "HfO2+ZrO2+Ta2O5+Nb2O5",
+        "recession_um_per_hr": 65.98119423449961
+      }
+    }
+  },
+  "method": "measured oxide vaporisation; Nb measured both phases (Kamegashira 1981 throat, Matsui-Naito 1983 air)",
+  "hf_enrichment_lever_RS25_throat": {
+    "pure ZrC": {
+      "x_Hf": 0.0,
+      "p_Pa": 217.35266762609825,
+      "recession_um_per_hr": 438.40033060184015
+    },
+    "(Hf,Zr)C 50/50": {
+      "x_Hf": 0.5,
+      "p_Pa": 131.61234436301245,
+      "recession_um_per_hr": 265.4620985801961
+    },
+    "pure HfC": {
+      "x_Hf": 1.0,
+      "p_Pa": 24.711893237992413,
+      "recession_um_per_hr": 49.8438886610307
+    }
+  }
+}
