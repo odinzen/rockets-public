@@ -37,6 +37,8 @@ R = 8.314462618
 METALS5 = ["Hf", "Zr", "Ti", "Ta", "Nb"]
 
 # dHmix(0.5) in J/mol per f.u., DFT this work (QE 7.3.1, PBE, ONCV SG15). Positive = demixing.
+# These are the Sol-computed pair enthalpies; the openly-deposited copy with full method
+# provenance is data/dft_pair_enthalpies.csv (kept in step with the values below).
 DFT_DHMIX = {
     frozenset(("Hf", "Zr")):  -0.4e3,
     frozenset(("Hf", "Ti")): +12.0e3,

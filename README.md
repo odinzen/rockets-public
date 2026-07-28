@@ -23,6 +23,7 @@ tabulated thermochemistry and numpy.
 
 ```
 code/       stability screen, volatility, transport, recession, and figure scripts
+data/       the ten DFT pair enthalpies computed on ASU Sol, with method provenance
 figures/    figures 1–8 (PDF + PNG)
 graphical_abstract.{png,pdf}
 ```
@@ -30,6 +31,10 @@ graphical_abstract.{png,pdf}
 `code/sourced_volatility.py` is the single source of truth for the vaporization
 thermochemistry; each value traces to primary measurement or evaluated compilation in its
 module docstring, and `p_hfzr` is the coupled shared-oxygen mixed-scale solve.
+
+`data/dft_pair_enthalpies.csv` holds the ten equiatomic pair mixing enthalpies computed
+on the Sol supercomputer at Arizona State University (the only first-principles inputs);
+they match the `DFT_DHMIX` constants in `code/stability_screen.py`.
 
 ## Running
 

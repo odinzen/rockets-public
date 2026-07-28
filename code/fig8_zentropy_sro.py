@@ -30,8 +30,10 @@ STYLE = {
 plt.rcParams.update({"font.family": "DejaVu Sans", "axes.linewidth": 1.1,
                      "axes.edgecolor": "black", "axes.facecolor": "white",
                      "figure.facecolor": "white", "savefig.facecolor": "white"})
-fig, ax = plt.subplots(figsize=(7.6, 5.2))
-fig.subplots_adjust(top=0.88, bottom=0.13, left=0.13, right=0.96)
+fig, ax = plt.subplots(figsize=(8.9, 5.2))
+# room on the right for the legend, which is placed outside the axes so it never
+# overlaps the descending five-metal curve
+fig.subplots_adjust(top=0.88, bottom=0.13, left=0.11, right=0.72)
 
 for key in ["C5", "C4_noTi", "C3_HfZrTa", "C3_HfZrNb", "C2_HfZr"]:
     s = STYLE[key]
@@ -53,7 +55,8 @@ for sp in ax.spines.values():
     sp.set_color("black"); sp.set_linewidth(1.1)
 ax.tick_params(direction="out", length=3.5, color="black")
 ax.grid(True, which="major", axis="both", color="0.85", lw=0.6, zorder=0)
-leg = ax.legend(loc="upper right", fontsize=9.5, frameon=True, edgecolor="black", ncol=1)
+leg = ax.legend(loc="upper left", bbox_to_anchor=(1.02, 1.0), fontsize=9.5,
+                frameon=True, edgecolor="black", ncol=1)
 leg.get_frame().set_linewidth(1.0)
 
 fig.suptitle("Short-Range-Order Correction to the Configurational Entropy Across the Service Window",

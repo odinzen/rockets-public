@@ -1,0 +1,25 @@
+# Ten equiatomic binary mixing enthalpies for the (Hf,Zr,Ti,Ta,Nb) metal sublattice of
+# the rocksalt carbides, computed in this work by density functional theory on the Sol
+# supercomputer at Arizona State University. These are the only first-principles inputs
+# the configurational-entropy stability screen requires (Section 2.1); the regular-
+# solution interaction parameters follow as L_ij = 4 * dHmix_ij(0.5).
+#
+# Method: Quantum ESPRESSO 7.3.1, PBE exchange-correlation, ONCV SG15 pseudopotentials;
+# variable-cell relaxation then a single-point evaluation. Pure carbides in the two-atom
+# primitive rocksalt cell (1 formula unit); each equiatomic pair in an eight-atom
+# conventional cubic cell (4 formula units) with the two metals ordered 50/50 on the
+# metal sublattice. dHmix(0.5) = E(mixed)/4 - 0.5*E(AC) - 0.5*E(BC).
+#
+# Sign convention: positive dHmix = tendency to demix. Values are the authoritative copy
+# and match the DFT_DHMIX constants in code/stability_screen.py.
+metal_A,metal_B,dHmix_kJ_per_mol
+Hf,Zr,-0.4
+Hf,Ti,12.0
+Hf,Ta,-4.8
+Hf,Nb,-1.5
+Zr,Ti,17.3
+Zr,Ta,-2.9
+Zr,Nb,0.1
+Ti,Ta,-13.9
+Ti,Nb,-7.1
+Ta,Nb,2.6
