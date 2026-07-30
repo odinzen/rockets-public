@@ -60,7 +60,8 @@ the cited public sources.
 
 ## License and attribution
 
-Copyright 2026 Odinzen LLC. Licensed under the Apache License, Version 2.0 — see
-[LICENSE](LICENSE) and [NOTICE](NOTICE). Work by Odinzen LLC (Houston, TX) with the
+Copyright 2026 Odinzen LLC. The code is under the MIT License (see [LICENSE](LICENSE));
+the figures and data are under CC BY 4.0 (see [LICENSE-DATA](LICENSE-DATA)). Work by
+Odinzen LLC (Houston, TX) with the
 Navrotsky Eyring Center for Materials of the Universe, School of Molecular Sciences,
 Arizona State University.
