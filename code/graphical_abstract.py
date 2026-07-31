@@ -49,7 +49,9 @@ for s in axL.spines.values(): s.set_color("black"); s.set_linewidth(1.1)
 axL.spines["left"].set_visible(False)
 axL.tick_params(direction="out", length=3.0, color="black", labelsize=6.8)
 
-fig.suptitle("Oxidation, not stability, decides the surface: a cheap thermodynamic screen ranks high-entropy carbides by rocket-throat recession",
+# Design provenance for the graphical abstract. The image shipped in the repo
+# root is the journal editorial-final (greyscale); this reproduces its content.
+fig.suptitle("Surface oxidation, not bulk stability, determines high entropy carbide selection",
              fontsize=8.0, fontweight="bold", y=0.955)
 import os; _root=os.path.join(os.path.dirname(os.path.abspath(__file__)),".."); fig.savefig(os.path.join(_root,"graphical_abstract.pdf"), bbox_inches="tight"); fig.savefig(os.path.join(_root,"graphical_abstract.png"), dpi=300, bbox_inches="tight")
 print("[written] graphical_abstract.png")
