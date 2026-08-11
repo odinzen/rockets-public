@@ -24,17 +24,13 @@ detected ZrO2 but not HfO2 in the same cell at 2660 K.
 Sources are listed in docs/HAFNIA_modern_recalculation_2026-07-18.md. Gibbs energy
 functions for the monoxides are extrapolated in lnT beyond their table ends.
 """
-import json
 import math
-import os
 
 import numpy as np
 
 R = 8.314462618
 T_THROAT = 3248.0
 PA_PER_BAR = 1.0e5
-HERE = os.path.dirname(os.path.abspath(__file__))
-VAULT = os.path.join(HERE, "..", "..", "odinzen_assessment_workspace", "artifacts")
 
 
 def interp(a, b, f=0.48):
@@ -49,16 +45,19 @@ def fit_lnT(temps, gefs, T):
     return c[0] * math.log(T) + c[1]
 
 
+# HfO(g) gef = S - (H-H298)/T, J/mol/K, 1500-2500 K, from the supplementary of Bauschlicher,
+# Kowalski and Jacobson, J Chem Phys 157 (2022) 154302, doi 10.1063/5.0120504 (printed Cp
+# equation is misprinted and not used). Extrapolated in lnT above 2500 K.
+_HFO_G_GEF = (
+    [1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500],
+    [263.0155, 264.8636, 266.6314, 268.3254, 269.9516, 271.5153, 273.0216, 274.4749,
+     275.8796, 277.2392, 278.5572],
+)
+
+
 def hfo_gef(T):
-    """HfO(g) from the Bauschlicher 2022 supplementary table, fitted above 1500 K."""
-    p = os.path.join(VAULT, "Refractory-Oxides",
-                     "bauschlicher_2022_supplementary", "hfo_g_thermal.json")
-    d = json.load(open(p))
-    ts = sorted(float(k) for k in d)
-    h298 = d["298.15"]["H"]
-    g = [d[str(t)]["S"] - (d[str(t)]["H"] - h298) * 1000.0 / t for t in ts]
-    sel = [(t, gg) for t, gg in zip(ts, g) if t >= 1500]
-    return fit_lnT([a for a, _ in sel], [b for _, b in sel], T)
+    """HfO(g), fitted in lnT over the 1500-2500 K Bauschlicher grid."""
+    return fit_lnT(_HFO_G_GEF[0], _HFO_G_GEF[1], T)
 
 
 # gef at 3248 K, J/mol/K

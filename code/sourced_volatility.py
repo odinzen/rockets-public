@@ -30,7 +30,6 @@ Sources
   Nb                   Kamegashira 1981 (throat), Matsui and Naito 1983 (air).
   hafnia cross-check   Panish and Reif, J Chem Phys 38 (1963) 253, doi 10.1063/1.1733473.
 """
-import json
 import math
 import os
 
@@ -39,7 +38,7 @@ import numpy as np
 R = 8.314462618
 PA_PER_BAR = 1.0e5
 HERE = os.path.dirname(os.path.abspath(__file__))
-VAULT = os.path.join(HERE, "..", "..", "odinzen_assessment_workspace", "artifacts")
+VAULT = os.path.join(HERE, "..", "data", "thermo")  # bundled thermochemical inputs
 
 T_RS25, T_F1, T_EDGE = 3248.0, 3143.0, 2200.0
 
@@ -62,15 +61,19 @@ def _janaf_gef(code, T):
     return float(np.interp(T, [r[0] for r in rows], [r[1] for r in rows]))
 
 
+# HfO(g) Gibbs energy function gef = S - (H-H298)/T, J/mol/K, on the 1500-2500 K grid the
+# fit uses. Transcribed from the supplementary of Bauschlicher, Kowalski and Jacobson,
+# J Chem Phys 157 (2022) 154302, doi 10.1063/5.0120504 (the printed Cp equation is misprinted
+# and is not used). Extrapolated in lnT above 2500 K.
+_HFO_G_GEF = (
+    [1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500],
+    [263.0155, 264.8636, 266.6314, 268.3254, 269.9516, 271.5153, 273.0216, 274.4749,
+     275.8796, 277.2392, 278.5572],
+)
+
+
 def _hfo_gef(T):
-    p = os.path.join(VAULT, "Refractory-Oxides", "bauschlicher_2022_supplementary",
-                     "hfo_g_thermal.json")
-    d = json.load(open(p))
-    ts = sorted(float(k) for k in d)
-    h298 = d["298.15"]["H"]
-    g = [d[str(t)]["S"] - (d[str(t)]["H"] - h298) * 1000.0 / t for t in ts]
-    sel = [(t, gg) for t, gg in zip(ts, g) if t >= 1500]
-    return _lnT([a for a, _ in sel], [b for _, b in sel], T)
+    return _lnT(_HFO_G_GEF[0], _HFO_G_GEF[1], T)
 
 
 # Barin gef ladders, transcribed from page renders with the values verified in

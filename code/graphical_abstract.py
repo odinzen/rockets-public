@@ -53,5 +53,11 @@ axL.tick_params(direction="out", length=3.0, color="black", labelsize=6.8)
 # root is the journal editorial-final (greyscale); this reproduces its content.
 fig.suptitle("Surface oxidation, not bulk stability, determines high entropy carbide selection",
              fontsize=8.0, fontweight="bold", y=0.955)
-import os; _root=os.path.join(os.path.dirname(os.path.abspath(__file__)),".."); fig.savefig(os.path.join(_root,"graphical_abstract.pdf"), bbox_inches="tight"); fig.savefig(os.path.join(_root,"graphical_abstract.png"), dpi=300, bbox_inches="tight")
+import os
+_root = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
+# keep the deliverable free of any tool/provenance metadata (no baked strings in the file)
+fig.savefig(os.path.join(_root, "graphical_abstract.pdf"), bbox_inches="tight",
+            metadata={"Creator": "", "Producer": ""})
+fig.savefig(os.path.join(_root, "graphical_abstract.png"), dpi=300, bbox_inches="tight",
+            metadata={"Software": ""})
 print("[written] graphical_abstract.png")
