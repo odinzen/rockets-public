@@ -2,9 +2,9 @@
 
 Screening code and figures for the study
 
-> **Oxidation, not phase stability, sets high-entropy carbide service life:
-> the propellant sets the required hafnium fraction**
-> Michael E. Bustamante, Gabriel Bustamante, Kristina Lilova (2026)
+> **Volatility sets high-entropy carbide service life above 3000 K, and both
+> wall temperature and propellant chemistry set the required hafnium fraction**
+> Michael E. Bustamante, Gabriel Bustamante, Kristina Lilova (2026), *Extreme Materials*.
 
 For high-entropy carbide ultra-high-temperature ceramics on rocket surfaces, service
 life is set by oxidation of the surface, not by bulk single-phase stability. A staged,
