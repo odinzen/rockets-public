@@ -4,7 +4,8 @@ Screening code and figures for the study
 
 > **Volatility sets high-entropy carbide service life above 3000 K, and both
 > wall temperature and propellant chemistry set the required hafnium fraction**
-> Michael E. Bustamante, Gabriel Bustamante, Kristina Lilova (2026), *Extreme Materials*.
+> Michael E. Bustamante, Gabriel Bustamante, Kristina Lilova (2026), *Extreme Materials* 2(3), 100047.
+> https://doi.org/10.1016/j.exm.2026.100047
 
 For high-entropy carbide ultra-high-temperature ceramics on rocket surfaces, service
 life is set by oxidation of the surface, not by bulk single-phase stability. A staged,
@@ -55,7 +56,7 @@ re-runs DFT.
 
 ## Citing
 
-If you use this code, please cite the manuscript above. The thermodynamic data are from
+If you use this code, please cite the article above. The thermodynamic data are from
 the cited public sources.
 
 ## License and attribution
